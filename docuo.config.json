@@ -1,0 +1,35 @@
+{
+  "title": "My Site",
+  "favicon": "image/favicon.ico",
+  "instances": [
+    {
+      "id": "default",
+      "label": "docs",
+      "path": "docs",
+      "routeBasePath": "docs"
+    }
+  ],
+  "themeConfig": {
+    "navbar": {
+      "title": "My Site",
+      "logo": "image/logo.png",
+      "iconRedirectUrl": "https://www.spreading.ai",
+      "items": [
+        {
+          "type": "docSidebar",
+          "sidebarIds": ["mySidebar"],
+          "label": "NavItem",
+          "position": "left",
+          "docsInstanceId": "default"
+        }
+      ]
+    },
+    "footer": {
+      "logo": "image/logo.png",
+      "copyright": "Copyright @2024 SPREADING. All Rights Reserved",
+      "caption": "",
+      "links": [],
+      "socials": []
+    }
+  }
+}
