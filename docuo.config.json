@@ -1,6 +1,6 @@
 {
   "title": "My Site",
-  "favicon": "image/favicon.ico",
+  "favicon": "https://zego-to-spreading.oss-ap-southeast-1.aliyuncs.com/docuo/workspace31/df3dbf7c220eb0a069cf6f618fd5ef09/favicon.ico",
   "instances": [
     {
       "id": "default",
@@ -11,13 +11,15 @@
   ],
   "themeConfig": {
     "navbar": {
-      "title": "My Site",
-      "logo": "image/logo.png",
+      "title": "My Sitezzzz",
+      "logo": "https://zego-to-spreading.oss-ap-southeast-1.aliyuncs.com/docuo/workspace31/df3dbf7c220eb0a069cf6f618fd5ef09/logo.png",
       "iconRedirectUrl": "https://www.spreading.ai",
       "items": [
         {
           "type": "docSidebar",
-          "sidebarIds": ["mySidebar"],
+          "sidebarIds": [
+            "mySidebar"
+          ],
           "label": "NavItem",
           "position": "left",
           "docsInstanceId": "default"
