@@ -10,31 +10,9 @@
           "label": "Introduction"
         },
         {
-          "type": "category",
-          "label": "Basic features",
-          "items": [
-            {
-              "type": "category",
-              "label": "Getting started",
-              "items": [
-                {
-                  "type": "doc",
-                  "id": "overview/getting-started/quickstart",
-                  "label": "Quickstart"
-                },
-                {
-                  "type": "doc",
-                  "id": "overview/getting-started/set-up-your-first-project",
-                  "label": "Set up your first project"
-                },
-                {
-                  "type": "doc",
-                  "id": "overview/getting-started/configuration",
-                  "label": "Configuration"
-                }
-              ]
-            }
-          ]
+          "type": "doc",
+          "id": "overview/basic-features",
+          "label": "Basic features"
         }
       ]
     },
@@ -46,6 +24,11 @@
           "type": "doc",
           "id": "getting-started/quickstart",
           "label": "Quickstart"
+        },
+        {
+          "type": "doc",
+          "id": "getting-started/development",
+          "label": "Development"
         },
         {
           "type": "doc",
@@ -64,9 +47,25 @@
       "label": "Editing docs",
       "items": [
         {
-          "type": "doc",
-          "id": "editing-docs/manange-your-docs",
-          "label": "Manange your docs"
+          "type": "category",
+          "label": "Managing docs",
+          "items": [
+            {
+              "type": "doc",
+              "id": "editing-docs/managing-docs/sidebar",
+              "label": "Sidebar"
+            },
+            {
+              "type": "doc",
+              "id": "editing-docs/managing-docs/docs-multi-instance",
+              "label": "Docs Multi-instance"
+            },
+            {
+              "type": "doc",
+              "id": "editing-docs/managing-docs/docs-versioning",
+              "label": "Docs versioning"
+            }
+          ]
         },
         {
           "type": "doc",
@@ -88,6 +87,22 @@
           "type": "doc",
           "id": "customizing/customize-through-platform",
           "label": "Customize through platform"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Engaging users",
+      "items": [
+        {
+          "type": "doc",
+          "id": "engaging-users/search",
+          "label": "Search"
+        },
+        {
+          "type": "doc",
+          "id": "engaging-users/analytics",
+          "label": "Analytics"
         }
       ]
     }

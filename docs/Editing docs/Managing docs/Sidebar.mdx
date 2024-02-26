@@ -1,4 +1,4 @@
-# Manage your docs
+# Sidebar
 
 You can configure a sidebar to manage your documentation, which is useful to:
 
@@ -14,7 +14,7 @@ To use sidebars on your Docuo site:
 
 <CodeGroup>
 
-```json docuo.config
+```json docuo.config.json
 {
   "themeConfig": {
     "navbar": {
@@ -28,6 +28,27 @@ To use sidebars on your Docuo site:
       ]
     }
   }
+}
+```
+
+</CodeGroup>
+
+<CodeGroup>
+
+```json sidebars.json
+{
+  "mySidebar": [
+    {
+      "type": "category",
+      "label": "Overview",
+      "items": ["overview/introduction"]
+    },
+    {
+      "type": "link",
+      "label": "Learn more",
+      "href": "https://example.com"
+    }
+  ]
 }
 ```
 
@@ -50,7 +71,7 @@ Use the `doc` type to link to a doc page and assign the doc to a sidebar:
 
 <CodeGroup>
 
-```ts type
+```ts type.ts
 type SidebarItemDoc =
   // Normal syntax
   | {
@@ -71,18 +92,18 @@ Here's an example:
 
 <CodeGroup>
 
-```json sidebars
+```json sidebars.json
 {
   "mySidebar": [
     // Normal syntax
     {
       "type": "doc",
-      "id": "doc1", // document ID
-      "label": "Getting started" // sidebar label
+      "id": "overview/basic-features", // document ID
+      "label": "Basic features" // sidebar label
     },
 
     // Shorthand syntax
-    "doc2" // document ID
+    "overview/introduction" // document ID
   ]
 }
 ```
@@ -103,7 +124,7 @@ Use the `link` type to link to any page (internal or external) that is not a doc
 
 <CodeGroup>
 
-```ts type
+```ts type.ts
 type SidebarItemLink = {
   type: "link";
   label: string;
@@ -117,7 +138,7 @@ Here's an example:
 
 <CodeGroup>
 
-```json sidebars
+```json sidebars.json
 {
   "myLinksSidebar": [
     // External link
@@ -145,7 +166,7 @@ Use the `category` type to create a hierarchy of sidebar items.
 
 <CodeGroup>
 
-```ts type
+```ts type.ts
 type SidebarItemCategory = {
   type: "category";
   label: string; // Sidebar label text.
@@ -159,22 +180,19 @@ Here's an example:
 
 <CodeGroup>
 
-```json sidebars
+```json sidebars.json
 {
   "mySidebar": [
     {
       "type": "category",
-      "label": "Guides",
+      "label": "Editing docs",
       "items": [
-        "creating-pages",
+        "editing-docs/docs-components",
         {
           "type": "category",
-          "label": "Docs",
+          "label": "Managing docs",
           "items": [
-            "introduction",
-            "sidebar",
-            "markdown-features",
-            "versioning"
+            "editing-docs/managing-docs/sidebar",
           ]
         }
       ]
@@ -191,13 +209,13 @@ Use the [**shorthand syntax**](./Manange%20your%20docs.mdx#category-shorthand) w
 
 <CodeGroup>
 
-```json sidebars
+```json sidebars.json
 {
   "mySidebar": {
-    "Guides": [
-      "creating-pages",
+    "Editing docs": [
+      "editing-docs/docs-components",
       {
-        "Docs": ["introduction", "sidebar", "markdown-features", "versioning"]
+        "Managing docs": ["editing-docs/managing-docs/sidebar"]
       }
     ]
   }
@@ -218,10 +236,10 @@ An item with type `doc` can be simplified to a string to represent its ID:
 
 ```json sidebars(Longhand)
 {
-  "sidebar": [
+  "mySidebar": [
     {
       "type": "doc",
-      "id": "myDoc"
+      "id": "overview/introduction"
     }
   ]
 }
@@ -229,7 +247,7 @@ An item with type `doc` can be simplified to a string to represent its ID:
 
 ```json sidebars(Shorthand)
 {
-  "sidebar": ["myDoc"]
+  "mySidebar": ["overview/introduction"]
 }
 ```
 
@@ -239,18 +257,13 @@ So it's possible for you to simplify the example above to:
 
 <CodeGroup>
 
-```json sidebars
+```json sidebars.json
 {
   "mySidebar": [
     {
       "type": "category",
-      "label": "Getting Started",
-      "items": ["doc1"]
-    },
-    {
-      "type": "category",
-      "label": "Docuo",
-      "items": ["doc2", "doc3"]
+      "label": "Overview",
+      "items": ["overview/introduction"]
     },
     {
       "type": "link",
@@ -271,11 +284,11 @@ A category item can be represented by an object whose key is its label, and the 
 
 ```json sidebars(Longhand)
 {
-  "sidebar": [
+  "mySidebar": [
     {
       "type": "category",
-      "label": "Getting started",
-      "items": ["doc1", "doc2"]
+      "label": "Overview",
+      "items": ["overview/introduction", "overview/basic-features"]
     }
   ]
 }
@@ -283,9 +296,9 @@ A category item can be represented by an object whose key is its label, and the 
 
 ```json sidebars(Shorthand)
 {
-  "sidebar": [
+  "mySidebar": [
     {
-      "Getting started": ["doc1", "doc2"]
+      "Overview": ["overview/introduction", "overview/basic-features"]
     }
   ]
 }
@@ -297,14 +310,11 @@ This allows you to simplify the example to:
 
 <CodeGroup>
 
-```json sidebars
+```json sidebars.json
 {
   "mySidebar": [
     {
-      "Getting started": ["doc1"]
-    },
-    {
-      "Docuo": ["doc2", "doc3"]
+      "Overview": ["overview/introduction"]
     },
     {
       "type": "link",
@@ -321,12 +331,12 @@ Each shorthand object after this transformation will contain exactly one entry. 
 
 <CodeGroup>
 
-```json sidebars
+```json sidebars.json
 {
   "mySidebar": [
     {
-      "Getting started": ["doc1"],
-      "Docuo": ["doc2", "doc3"]
+      "Overview": ["overview/introduction"],
+      "Getting started": ["getting-started/quickstart", "getting-started/development"]
     },
     {
       "type": "link",
@@ -347,7 +357,7 @@ Docuo can create a sidebar automatically from your filesystem structure: each fo
 
 <CodeGroup>
 
-```ts type
+```ts type.ts
 type SidebarItemAutogenerated = {
   type: "autogenerated";
   dirName: string; // Source folder to generate the sidebar slice from (relative to docs)
@@ -360,7 +370,7 @@ Docuo can generate a full sidebar from your docs folder:
 
 <CodeGroup>
 
-```json sidebars
+```json sidebars.json
 {
   "myAutogeneratedSidebar": [
     {
@@ -383,7 +393,7 @@ If the `sidebarPath` is unspecified, Docuo [automatically use a default sidebar]
 
 <CodeGroup>
 
-```json sidebars
+```json sidebars.json
 {
   "mySidebar": [
     {
@@ -406,7 +416,7 @@ A sidebar at its crux is a hierarchy of categories, doc links, and other hyperli
 
 <CodeGroup>
 
-```ts type
+```ts type.ts
 type Sidebar =
   // Normal syntax
   | SidebarItem[]
@@ -420,7 +430,7 @@ For example:
 
 <CodeGroup>
 
-```json sidebars
+```json sidebars.json
 {
   "mySidebar": [
     {
@@ -429,21 +439,21 @@ For example:
       "items": [
         {
           "type": "doc",
-          "id": "doc1"
+          "id": "getting-started/quickstart"
         }
       ]
     },
     {
       "type": "category",
-      "label": "Docuo",
+      "label": "Overview",
       "items": [
         {
           "type": "doc",
-          "id": "doc2"
+          "id": "overview/introduction"
         },
         {
           "type": "doc",
-          "id": "doc3"
+          "id": "overview/basic-features"
         }
       ]
     },
@@ -468,22 +478,21 @@ Here's an complete example with complex sidebar usage:
 
 <CodeGroup>
 
-```json sidebars
+```json sidebars.json
 {
   "mySidebar": [
     {
-      "Quick Start": [
-        "doc1",
-        "doc2",
+      "Editing docs": [
+        "editing-docs/docs-components",
         {
           "type": "autogenerated",
-          "dirName": "intro"
+          "dirName": "Managing docs"
         }
       ]
     },
     {
       "type": "autogenerated",
-      "dirName": "faq"
+      "dirName": "Overview"
     },
     {
       "type": "link",
