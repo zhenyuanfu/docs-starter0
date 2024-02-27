@@ -8,7 +8,9 @@
       "items": [
         {
           "type": "docSidebar",
-          "sidebarIds": ["mySidebar"],
+          "sidebarIds": [
+            "mySidebar"
+          ],
           "label": "Documentation",
           "position": "left"
         }
@@ -54,5 +56,25 @@
       "apiKey": "YOUR_API_KEY",
       "indexName": "YOUR_INDEX_NAME"
     }
-  }
+  },
+  "instances": [
+    {
+      "id": "default",
+      "label": "docs",
+      "path": "docs",
+      "routeBasePath": ""
+    },
+    {
+      "id": "ios",
+      "label": "ios",
+      "path": "ios_docs",
+      "routeBasePath": "ios"
+    },
+    {
+      "id": "android",
+      "label": "android",
+      "path": "android_docs",
+      "routeBasePath": "android"
+    }
+  ]
 }
